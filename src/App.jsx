@@ -20,22 +20,28 @@ function App() {
             variant="text"
             color="primary"
             onClick={() => {
-              setCount(count + 1);
+              setCount(count - 1);
             }}
           >
-            +
+            -
           </Button>
           <h1>{count}</h1>
           <Button
             variant="text"
             color="primary"
             onClick={() => {
-              setCount(count - 1);
+              setCount(count + 1);
             }}
           >
-            -
+            +
           </Button>
         </Stack>
+        <Stack>
+          <Button variant="text" color="secondary" onClick={() => setCount(0)}>
+            Reset
+          </Button>
+        </Stack>
+        {count < 0 && <p style={{ color: "red" }}>Số âm rồi!</p>}
       </Container>
     </>
   );
