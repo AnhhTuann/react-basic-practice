@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "./App.css";
 import Button from "@mui/material/Button";
-import { Stack, Container } from "@mui/material";
+import { Stack, Container, TextField } from "@mui/material";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [input, setInput] = useState(0);
 
   return (
     <>
@@ -41,7 +42,27 @@ function App() {
             Reset
           </Button>
         </Stack>
-        {count < 0 && <p style={{ color: "red" }}>Số âm rồi!</p>}
+        {count < 0 && (
+          <p style={{ color: "red", textAlign: "center" }}>Số âm rồi!</p>
+        )}
+        <Stack
+          direction={"row"}
+          spacing={2}
+          justifyContent={"center"}
+          marginTop={1}
+        >
+          <TextField
+            type="number"
+            onChange={(e) => setInput(Number(e.target.value))}
+          />
+          <Button
+            variant="text"
+            color="primary"
+            onClick={() => setCount(input + count)}
+          >
+            Plus
+          </Button>
+        </Stack>
       </Container>
     </>
   );
