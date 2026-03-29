@@ -126,7 +126,7 @@ function App() {
                 <CollapsibleSection title="Practice 2 (Input handling)">
                   <Practice2 />
                 </CollapsibleSection>
-                <CollapsibleSection title="Practice 3 (Custom Practice)">
+                <CollapsibleSection title="Practice 3 (Magic Clicker)">
                   <Practice3 />
                 </CollapsibleSection>
               </Stack>
