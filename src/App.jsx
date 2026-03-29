@@ -16,7 +16,7 @@ import {
   Divider,
   Paper,
 } from "@mui/material";
-import { Counter, Practice1, Practice2 } from "./features/lession1";
+import { Counter, Practice1, Practice2, Practice3 } from "./features/lession1";
 import CollapsibleSection from "./components/CollapsibleSection";
 import "./App.css";
 
@@ -125,6 +125,9 @@ function App() {
                 </CollapsibleSection>
                 <CollapsibleSection title="Practice 2 (Input handling)">
                   <Practice2 />
+                </CollapsibleSection>
+                <CollapsibleSection title="Practice 3 (Custom Practice)">
+                  <Practice3 />
                 </CollapsibleSection>
               </Stack>
             </Box>

@@ -8,10 +8,6 @@ function Practice1() {
   const { count, increase, decrease, reset } = useCounter();
   return (
     <Box sx={{ p: 3, textAlign: "center" }}>
-      <Typography variant="h5" sx={{ mb: 3, fontWeight: 700 }}>
-        Practice 1
-      </Typography>
-
       <Stack spacing={3} alignItems="center">
         <Stack direction="row" spacing={3} alignItems="center">
           <Button
