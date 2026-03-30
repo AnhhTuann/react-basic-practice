@@ -61,19 +61,19 @@ const Lesson1Practices = () => {
   return (
     <Box
       sx={{
-        p: 4,
+        p: { xs: 1.5, md: 3 },
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: 4,
+        gap: { xs: 2, sm: 3 },
       }}
     >
       <Paper 
         elevation={0} 
         sx={{ 
-          p: 3, 
+          p: { xs: 1.5, sm: 2 }, 
           width: '100%',
-          mb: 4, 
+          mb: { xs: 2, sm: 3 }, 
           background: 'rgba(6, 182, 212, 0.05)', 
           border: '1px solid rgba(6, 182, 212, 0.2)', 
           borderRadius: 4, 
@@ -93,14 +93,14 @@ const Lesson1Practices = () => {
             variant="contained"
             onClick={() => setOpenDocs(true)} 
             sx={{ 
-              minWidth: 180,
+              minWidth: { xs: '100%', sm: 160 },
               background: 'linear-gradient(45deg, #06b6d4, #3b82f6)',
               color: 'white',
               fontWeight: 'bold', 
               borderRadius: 3,
               boxShadow: '0 4px 15px rgba(6, 182, 212, 0.3)',
               textTransform: 'none',
-              py: 1,
+              py: { xs: 0.5, sm: 1 },
               transition: 'all 0.2s',
               '&:hover': { transform: 'scale(1.05)', boxShadow: '0 6px 20px rgba(6, 182, 212, 0.4)' }
             }}
@@ -114,9 +114,9 @@ const Lesson1Practices = () => {
       <Paper
         elevation={0}
         sx={{
-          p: 4,
+          p: { xs: 2, sm: 3 },
           width: "100%",
-          maxWidth: 400,
+          maxWidth: 360,
           background: "rgba(255, 255, 255, 0.03)",
           backdropFilter: "blur(10px)",
           borderRadius: 4,
@@ -142,10 +142,10 @@ const Lesson1Practices = () => {
 
         <Stack
           direction="row"
-          spacing={3}
+          spacing={{ xs: 2, sm: 3 }}
           alignItems="center"
           justifyContent="center"
-          sx={{ my: 4 }}
+          sx={{ my: { xs: 2, sm: 4 } }}
         >
           <IconButton
             onClick={decrease}
@@ -163,7 +163,8 @@ const Lesson1Practices = () => {
             variant="h1"
             sx={{
               fontWeight: 800,
-              minWidth: 100,
+              minWidth: { xs: 60, sm: 100 },
+              fontSize: { xs: '3rem', sm: '4.5rem' },
               background: "linear-gradient(135deg, #fff 30%, #6366f1 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -224,9 +225,9 @@ const Lesson1Practices = () => {
       <Paper
         elevation={0}
         sx={{
-          p: 3,
+          p: { xs: 2, sm: 3 },
           width: "100%",
-          maxWidth: 400,
+          maxWidth: 360,
           background: "rgba(255, 255, 255, 0.02)",
           borderRadius: 4,
           border: "1px solid rgba(255, 255, 255, 0.05)",
@@ -257,7 +258,7 @@ const Lesson1Practices = () => {
             }}
           />
 
-          <Stack direction="row" spacing={2}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
             <Button
               fullWidth
               variant="contained"

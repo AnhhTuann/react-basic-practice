@@ -102,17 +102,17 @@ function App() {
             backdropFilter: "blur(8px)",
           }}
         >
-          <Toolbar>
+          <Toolbar sx={{ flexWrap: 'wrap', justifyContent: 'center', py: { xs: 2, sm: 1 }, columnGap: 2, rowGap: 1 }}>
             <Typography
               variant="h6"
               component="div"
               className="gradient-text"
-              sx={{ fontWeight: 800, mr: 4 }}
+              sx={{ fontWeight: 800, mr: { xs: 0, sm: 4 }, textAlign: 'center', width: { xs: '100%', sm: 'auto' } }}
             >
               REACT PRACTICES
             </Typography>
             
-            <Box sx={{ flexGrow: 1, display: "flex", gap: 2 }}>
+            <Box sx={{ flexGrow: { xs: 0, sm: 1 }, display: "flex", gap: 2, justifyContent: 'center' }}>
               <Button
                 component={Link}
                 to="/lesson1"
@@ -136,7 +136,7 @@ function App() {
               color="secondary"
               size="small"
               onClick={() => setOpenDocs(true)}
-              sx={{ borderRadius: 4 }}
+              sx={{ borderRadius: 4, width: { xs: '100%', sm: 'auto' } }}
             >
               📖 Docs
             </Button>

@@ -11,12 +11,12 @@ function Practice1() {
   const { count, increase, decrease, reset } = useCounter();
   const [openDocs, setOpenDocs] = useState(false);
   return (
-    <Box sx={{ p: 3, textAlign: "center" }}>
+    <Box sx={{ p: { xs: 1.5, md: 3 }, textAlign: "center" }}>
       <Paper 
         elevation={0} 
         sx={{ 
-          p: 3, 
-          mb: 4, 
+          p: { xs: 1.5, sm: 2 }, 
+          mb: { xs: 2, sm: 3 }, 
           background: 'rgba(6, 182, 212, 0.05)', 
           border: '1px solid rgba(6, 182, 212, 0.2)', 
           borderRadius: 4, 
@@ -36,14 +36,14 @@ function Practice1() {
             variant="contained"
             onClick={() => setOpenDocs(true)} 
             sx={{ 
-              minWidth: 180,
+              minWidth: { xs: '100%', sm: 160 },
               background: 'linear-gradient(45deg, #06b6d4, #3b82f6)',
               color: 'white',
               fontWeight: 'bold', 
               borderRadius: 3,
               boxShadow: '0 4px 15px rgba(6, 182, 212, 0.3)',
               textTransform: 'none',
-              py: 1,
+              py: { xs: 0.5, sm: 1 },
               transition: 'all 0.2s',
               '&:hover': { transform: 'scale(1.05)', boxShadow: '0 6px 20px rgba(6, 182, 212, 0.4)' }
             }}
@@ -53,12 +53,12 @@ function Practice1() {
         </Stack>
       </Paper>
       <Stack spacing={3} alignItems="center">
-        <Stack direction="row" spacing={3} alignItems="center">
+        <Stack direction="row" spacing={{ xs: 2, sm: 3 }} alignItems="center">
           <Button
             variant="outlined"
             color="inherit"
             onClick={decrease}
-            sx={{ opacity: 0.7 }}
+            sx={{ opacity: 0.7, minWidth: { xs: 40, sm: 64 } }}
           >
             <RemoveIcon />
           </Button>
@@ -68,12 +68,12 @@ function Practice1() {
             color="error"
             anchorOrigin={{ vertical: "top", horizontal: "right" }}
           >
-            <Typography variant="h3" sx={{ fontWeight: 800, minWidth: 60 }}>
+            <Typography variant="h3" sx={{ fontWeight: 800, minWidth: { xs: 50, sm: 60 }, fontSize: { xs: '2.5rem', sm: '3rem'} }}>
               {count}
             </Typography>
           </Badge>
 
-          <Button variant="outlined" color="primary" onClick={increase}>
+          <Button variant="outlined" color="primary" onClick={increase} sx={{ minWidth: { xs: 40, sm: 64 } }}>
             <AddIcon />
           </Button>
         </Stack>

@@ -24,8 +24,8 @@ function Lesson1() {
       >
         Interactive Tutorial
       </Typography>
-      <Stack direction="row" alignItems="center" justifyContent="center" spacing={2} sx={{ mb: 4 }}>
-        <Typography variant="h5" className="gradient-text" sx={{ fontWeight: 800 }}>
+      <Stack direction={{ xs: 'column', sm: 'row' }} alignItems="center" justifyContent="center" spacing={2} sx={{ mb: 4 }}>
+        <Typography variant="h5" className="gradient-text" sx={{ fontWeight: 800, fontSize: { xs: '1.25rem', sm: '1.5rem' }, textAlign: 'center' }}>
           Lesson 1 - useState()
         </Typography>
         <Button 
@@ -48,7 +48,7 @@ function Lesson1() {
 
       <Stack
         direction="row"
-        spacing={4}
+        spacing={{ xs: 2, sm: 4 }}
         alignItems="center"
         justifyContent="center"
         sx={{
@@ -56,7 +56,7 @@ function Lesson1() {
           backdropFilter: "blur(10px)",
           border: "1px solid rgba(255,255,255,0.1)",
           boxShadow: "0 10px 30px -10px rgba(0,0,0,0.5)",
-          p: 3,
+          p: { xs: 2, sm: 3 },
           borderRadius: 6,
           display: "inline-flex",
           transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -79,7 +79,7 @@ function Lesson1() {
           <RemoveIcon />
         </Button>
 
-        <Typography variant="h2" className="gradient-text" sx={{ width: 80, fontWeight: 900, mb: 0 }}>
+        <Typography variant="h2" className="gradient-text" sx={{ width: { xs: 50, sm: 80 }, fontSize: { xs: '2.5rem', sm: '3.75rem' }, fontWeight: 900, mb: 0 }}>
           {count}
         </Typography>
 

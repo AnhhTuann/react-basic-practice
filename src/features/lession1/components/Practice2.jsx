@@ -13,12 +13,12 @@ function Practice2() {
   const [openDocs, setOpenDocs] = useState(false);
 
   return (
-    <Box sx={{ p: 3, textAlign: "center" }}>
+    <Box sx={{ p: { xs: 1.5, md: 3 }, textAlign: "center" }}>
       <Paper 
         elevation={0} 
         sx={{ 
-          p: 3, 
-          mb: 4, 
+          p: { xs: 1.5, sm: 2 }, 
+          mb: { xs: 2, sm: 3 }, 
           background: 'rgba(6, 182, 212, 0.05)', 
           border: '1px solid rgba(6, 182, 212, 0.2)', 
           borderRadius: 4, 
@@ -38,14 +38,14 @@ function Practice2() {
             variant="contained"
             onClick={() => setOpenDocs(true)} 
             sx={{ 
-              minWidth: 180,
+              minWidth: { xs: '100%', sm: 160 },
               background: 'linear-gradient(45deg, #06b6d4, #3b82f6)',
               color: 'white',
               fontWeight: 'bold', 
               borderRadius: 3,
               boxShadow: '0 4px 15px rgba(6, 182, 212, 0.3)',
               textTransform: 'none',
-              py: 1,
+              py: { xs: 0.5, sm: 1 },
               transition: 'all 0.2s',
               '&:hover': { transform: 'scale(1.05)', boxShadow: '0 6px 20px rgba(6, 182, 212, 0.4)' }
             }}
@@ -60,22 +60,22 @@ function Practice2() {
 
       <Stack
         alignItems="center"
-        spacing={3}
+        spacing={{ xs: 2, sm: 3 }}
         direction={"row"}
         justifyContent="center"
-        mb={2}
+        mb={4}
       >
         <Button
           variant="outlined"
           color="inherit"
           onClick={decrease}
-          sx={{ opacity: 0.7 }}
+          sx={{ opacity: 0.7, minWidth: { xs: 40, sm: 64 } }}
         >
           <RemoveIcon />
         </Button>
         <Typography
           variant="h3"
-          sx={{ mb: 4, color: "primary.main", fontWeight: "bold" }}
+          sx={{ color: "primary.main", fontWeight: "bold", fontSize: { xs: '2.5rem', sm: '3rem' } }}
         >
           {count}
         </Typography>
@@ -83,7 +83,7 @@ function Practice2() {
           variant="outlined"
           color="inherit"
           onClick={increase}
-          sx={{ opacity: 0.7 }}
+          sx={{ opacity: 0.7, minWidth: { xs: 40, sm: 64 } }}
         >
           <AddIcon />
         </Button>

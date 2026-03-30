@@ -34,12 +34,12 @@ function Practice3() {
   const feedback = getFeedback();
 
   return (
-    <Box sx={{ p: 4, textAlign: "center" }}>
+    <Box sx={{ p: { xs: 1.5, md: 3 }, textAlign: "center" }}>
       <Paper 
         elevation={0} 
         sx={{ 
-          p: 3, 
-          mb: 4, 
+          p: { xs: 1.5, sm: 2 }, 
+          mb: { xs: 2, sm: 3 }, 
           background: 'rgba(6, 182, 212, 0.05)', 
           border: '1px solid rgba(6, 182, 212, 0.2)', 
           borderRadius: 4, 
@@ -59,14 +59,14 @@ function Practice3() {
             variant="contained"
             onClick={() => setOpenDocs(true)} 
             sx={{ 
-              minWidth: 180,
+              minWidth: { xs: '100%', sm: 160 },
               background: 'linear-gradient(45deg, #06b6d4, #3b82f6)',
               color: 'white',
               fontWeight: 'bold', 
               borderRadius: 3,
               boxShadow: '0 4px 15px rgba(6, 182, 212, 0.3)',
               textTransform: 'none',
-              py: 1,
+              py: { xs: 0.5, sm: 1 },
               transition: 'all 0.2s',
               '&:hover': { transform: 'scale(1.05)', boxShadow: '0 6px 20px rgba(6, 182, 212, 0.4)' }
             }}
@@ -78,7 +78,7 @@ function Practice3() {
       <Paper
         elevation={0}
         sx={{
-          p: 4,
+          p: { xs: 2, sm: 3 },
           borderRadius: 4,
           background:
             "linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(244, 63, 94, 0.05) 100%)",
@@ -117,9 +117,9 @@ function Practice3() {
             startIcon={<TouchAppIcon />}
             onClick={increase}
             sx={{
-              px: 8,
-              py: 2,
-              fontSize: "1.2rem",
+              px: { xs: 3, sm: 6 },
+              py: { xs: 1, sm: 1.5 },
+              fontSize: { xs: "1rem", sm: "1.2rem" },
               borderRadius: 50,
               boxShadow: "0 8px 16px rgba(99, 102, 241, 0.3)",
               transition: "all 0.2s",
@@ -144,7 +144,8 @@ function Practice3() {
               p: 2,
               borderRadius: 2,
               bgcolor: "rgba(255,255,255,0.03)",
-              minWidth: 300,
+              width: { xs: '100%', sm: 'auto' },
+              minWidth: { xs: 0, sm: 300 },
               transition: "all 0.3s",
               border: "1px dashed rgba(255,255,255,0.1)",
             }}
