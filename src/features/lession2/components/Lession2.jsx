@@ -1,28 +1,14 @@
-import { Box, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Box, Typography, Button, CircularProgress } from "@mui/material";
+import useFetch from "../hooks/useFetch";
 
 function Lession2() {
-  const [user, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  useEffect(
-    () => {
-      //useEffect chạy khi load component, chỉ chạy 1 lần
-      const fetchData = async () => {
-        const res = await fetch("https://jsonplaceholder.typicode.com/users");
-        //fetch API trả về 1 promise, phải dùng await để chờ kết quả
-        const data = await res.json();
-        //chuyển đổi kết quả thành JSON, cũng trả về 1 promise
-        setUsers(data);
-        //cập nhật state với dữ liệu đã lấy được
-        setLoading(false);
-        //đặt loading thành false để hiển thị dữ liệu sau khi đã tải xong
-      };
-
-      fetchData();
-    },
-    [],
-    //truyền mảng rỗng làm dependency để useEffect chỉ chạy 1 lần khi component được mount
-  );
+  // Sử dụng custom hook gọi API thay vì code dài dòng trong component
+  const {
+    data: user,
+    loading,
+    error,
+    refetch,
+  } = useFetch("https://jsonplaceholder.typicode.com/users");
 
   return (
     <Box sx={{ p: 3, textAlign: "center" }}>
@@ -38,15 +24,37 @@ function Lession2() {
         Interactive Tutorial
       </Typography>
       <Typography variant="h5" sx={{ mb: 4, fontWeight: 700 }}>
-        Lesson 2 - useEffect()
+        Lesson 2 - Custom Hook (useFetch)
       </Typography>
-      <Typography variant="h6" color="primary">
+      <Typography variant="h6" color="primary" sx={{ mb: 2 }}>
         Danh sách người dùng
       </Typography>
+
+      {/* Quản lý các trạng thái từ hook useFetch */}
       {loading ? (
-        <Typography>Loading...</Typography>
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+          <CircularProgress />
+        </Box>
+      ) : error ? (
+        <Typography color="error" sx={{ mt: 2 }}>
+          {error}
+        </Typography>
       ) : (
-        user.map((user) => <Typography key={user.id}>{user.name}</Typography>)
+        <Box>
+          {user?.map((user) => (
+            <Typography key={user.id} sx={{ my: 0.5 }}>
+              {user.name}
+            </Typography>
+          ))}
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ mt: 3 }}
+            onClick={refetch}
+          >
+            Gọi lại API (Refetch)
+          </Button>
+        </Box>
       )}
     </Box>
   );
