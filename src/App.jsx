@@ -1,4 +1,5 @@
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
+import { Routes, Route, Link, Navigate, useLocation } from "react-router-dom";
 import {
   ThemeProvider,
   createTheme,
@@ -17,7 +18,7 @@ import {
   Paper,
 } from "@mui/material";
 import {
-  Counter,
+  Lesson1,
   Lesson1Practices,
   Practice1,
   Practice2,
@@ -25,10 +26,13 @@ import {
 } from "./features/lession1";
 import CollapsibleSection from "./components/CollapsibleSection";
 import "./App.css";
+import { Lession2 } from "./features/lession2";
+import DocsDialog from "./components/DocsDialog";
+import buttonDocsContent from "../docs/ReactBasics.md?raw";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [input, setInput] = useState(0);
+  const [openDocs, setOpenDocs] = useState(false);
+  const location = useLocation();
 
   const theme = useMemo(
     () =>
@@ -36,10 +40,10 @@ function App() {
         palette: {
           mode: "dark",
           primary: {
-            main: "#6366f1", // Indigo 500
+            main: "#06b6d4", // Cyan
           },
           secondary: {
-            main: "#f43f5e", // Rose 500
+            main: "#d946ef", // Fuchsia
           },
           background: {
             default: "#0f172a",
@@ -72,6 +76,10 @@ function App() {
             styleOverrides: {
               root: {
                 backgroundImage: "none",
+                backgroundColor: "rgba(255, 255, 255, 0.03)",
+                backdropFilter: "blur(16px)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.3)",
               },
             },
           },
@@ -98,53 +106,93 @@ function App() {
             <Typography
               variant="h6"
               component="div"
-              sx={{ flexGrow: 1, fontWeight: 800, color: "primary.main" }}
+              className="gradient-text"
+              sx={{ fontWeight: 800, mr: 4 }}
             >
               REACT PRACTICES
             </Typography>
-            <Button color="inherit" size="small">
-              Docs
+            
+            <Box sx={{ flexGrow: 1, display: "flex", gap: 2 }}>
+              <Button
+                component={Link}
+                to="/lesson1"
+                color={location.pathname === "/lesson1" ? "primary" : "inherit"}
+                sx={{ opacity: location.pathname === "/lesson1" ? 1 : 0.7 }}
+              >
+                Lesson 1
+              </Button>
+              <Button
+                component={Link}
+                to="/lesson2"
+                color={location.pathname === "/lesson2" ? "primary" : "inherit"}
+                sx={{ opacity: location.pathname === "/lesson2" ? 1 : 0.7 }}
+              >
+                Lesson 2
+              </Button>
+            </Box>
+
+            <Button
+              variant="outlined"
+              color="secondary"
+              size="small"
+              onClick={() => setOpenDocs(true)}
+              sx={{ borderRadius: 4 }}
+            >
+              📖 Docs
             </Button>
           </Toolbar>
         </AppBar>
 
         <Container maxWidth="md" sx={{ mt: 6 }}>
-          <Stack spacing={4}>
-            {/* Lessons Section */}
-            <Box>
-              <Typography variant="h4" gutterBottom sx={{ mb: 3 }}>
-                Lessons & Practices
-              </Typography>
-              <Stack spacing={3}>
-                <Paper
-                  variant="outlined"
-                  sx={{
-                    p: 1,
-                    backgroundColor: "rgba(30, 41, 59, 0.5)",
-                    borderColor: "rgba(255,255,255,0.1)",
-                  }}
-                >
-                  <Counter />
-                </Paper>
-                <CollapsibleSection title="Practice 1 (Counter Hook)">
-                  <Practice1 />
-                </CollapsibleSection>
-                <CollapsibleSection title="Practice 2 (Input handling)">
-                  <Practice2 />
-                </CollapsibleSection>
-                <CollapsibleSection title="Practice 3 (Magic Clicker)">
-                  <Practice3 />
-                </CollapsibleSection>
-                <CollapsibleSection title="Practices">
-                  <Lesson1Practices />
-                </CollapsibleSection>
-              </Stack>
-            </Box>
+          <Routes>
+            <Route path="/" element={<Navigate to="/lesson1" replace />} />
+            
+            <Route path="/lesson1" element={
+              <Box>
+                <Typography variant="h4" className="gradient-text" gutterBottom sx={{ mb: 3, width: "fit-content" }}>
+                  Lessons 1 & Practices
+                </Typography>
+                <Stack spacing={3}>
+                  <Paper sx={{ p: 1 }}>
+                    <Lesson1 />
+                  </Paper>
+                  <CollapsibleSection title="Practice 1 (Counter Hook)">
+                    <Practice1 />
+                  </CollapsibleSection>
+                  <CollapsibleSection title="Practice 2 (Input handling)">
+                    <Practice2 />
+                  </CollapsibleSection>
+                  <CollapsibleSection title="Practice 3 (Magic Clicker)">
+                    <Practice3 />
+                  </CollapsibleSection>
+                  <CollapsibleSection title="Practices">
+                    <Lesson1Practices />
+                  </CollapsibleSection>
+                </Stack>
+              </Box>
+            } />
 
-            <Divider sx={{ opacity: 0.1 }} />
-          </Stack>
+            <Route path="/lesson2" element={
+              <Box>
+                <Typography variant="h4" className="gradient-text" gutterBottom sx={{ mb: 3, width: "fit-content" }}>
+                  Lessons 2 & Practices
+                </Typography>
+                <Stack spacing={3}>
+                  <Paper sx={{ p: 1 }}>
+                    <Lession2 />
+                  </Paper>
+                </Stack>
+              </Box>
+            } />
+          </Routes>
         </Container>
       </Box>
+      <DocsDialog 
+        open={openDocs} 
+        onClose={() => setOpenDocs(false)} 
+        content={buttonDocsContent} 
+        title="ReactJS Basic Docs" 
+      />
     </ThemeProvider>
   );
 }

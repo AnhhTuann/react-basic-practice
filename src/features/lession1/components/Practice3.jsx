@@ -1,9 +1,13 @@
-import { Box, Button, Typography, Stack, Paper } from "@mui/material";
+import { Box, Button, Typography, Stack, Paper, Alert } from "@mui/material";
+import { useState } from "react";
 import TouchAppIcon from "@mui/icons-material/TouchApp";
 import useCounter from "../hooks/useCounter";
+import DocsDialog from "../../../components/DocsDialog";
+import practice3Docs from "../../../../docs/Practice3.md?raw";
 
 function Practice3() {
   const { count, increase, reset } = useCounter();
+  const [openDocs, setOpenDocs] = useState(false);
 
   const getFeedback = () => {
     if (count === 0)
@@ -31,6 +35,46 @@ function Practice3() {
 
   return (
     <Box sx={{ p: 4, textAlign: "center" }}>
+      <Paper 
+        elevation={0} 
+        sx={{ 
+          p: 3, 
+          mb: 4, 
+          background: 'rgba(6, 182, 212, 0.05)', 
+          border: '1px solid rgba(6, 182, 212, 0.2)', 
+          borderRadius: 4, 
+          textAlign: 'left' 
+        }}
+      >
+        <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ xs: 'flex-start', sm: 'center' }} spacing={3}>
+          <Box flex={1}>
+            <Typography variant="overline" color="primary.main" sx={{ fontWeight: 900, fontSize: '0.8rem', letterSpacing: 1.5 }}>
+              🎯 MỤC TIÊU BÀI TẬP 3
+            </Typography>
+            <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.6, mt: 0.5 }}>
+              Tạo một trò chơi "Magic Clicker". Xây dựng bộ đếm sao cho mỗi khi lượng Click vượt qua các mốc nhất định (Ví dụ: 10 lần, 20 lần), giao diện sẽ tự động hiển thị các câu thông báo động viên phản hồi tương ứng với cấp độ đó.
+            </Typography>
+          </Box>
+          <Button 
+            variant="contained"
+            onClick={() => setOpenDocs(true)} 
+            sx={{ 
+              minWidth: 180,
+              background: 'linear-gradient(45deg, #06b6d4, #3b82f6)',
+              color: 'white',
+              fontWeight: 'bold', 
+              borderRadius: 3,
+              boxShadow: '0 4px 15px rgba(6, 182, 212, 0.3)',
+              textTransform: 'none',
+              py: 1,
+              transition: 'all 0.2s',
+              '&:hover': { transform: 'scale(1.05)', boxShadow: '0 6px 20px rgba(6, 182, 212, 0.4)' }
+            }}
+          >
+            💡 Xem Lời Giải & Code
+          </Button>
+        </Stack>
+      </Paper>
       <Paper
         elevation={0}
         sx={{
@@ -117,6 +161,7 @@ function Practice3() {
           </Box>
         </Stack>
       </Paper>
+      <DocsDialog open={openDocs} onClose={() => setOpenDocs(false)} content={practice3Docs} title="Hướng Dẫn Practice 3" />
     </Box>
   );
 }
