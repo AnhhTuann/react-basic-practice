@@ -1,28 +1,43 @@
-# React + Vite
+# 🚀 React Basic Practice
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Một kho lưu trữ (repository) cá nhân dùng để học tập, thực hành và tổng hợp các kiến thức nền tảng của ReactJS. Dự án bao gồm các bài tập tương tác nhỏ gọn được thiết kế với giao diện cao cấp (Glassmorphism, Material UI).
 
-Currently, two official plugins are available:
+## 🛠 Cài đặt & Chạy dự án
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Dự án được khởi tạo bằng Vite. Để chạy dự án trên máy của bạn, hãy làm theo các bước sau:
 
-## React Compiler
+```bash
+# 1. Clone repository
+git clone https://github.com/AnhhTuann/react-basic-practice.git
+cd react-basic-practice
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 2. Cài đặt dependencies
+npm install
 
-## Expanding the ESLint configuration
+# 3. Khởi chạy dev server
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Sau đó, hãy truy cập vào `http://localhost:5173` (hoặc cổng hiển thị trên terminal) để xem ứng dụng.
+
+## 🎯 Các tính năng & Bài tập hiện có (Lesson 1)
+- **Practice 1:** Bộ đếm (Counter) cơ bản tích hợp cảnh báo động khi giá trị bị âm.
+- **Practice 2:** Bộ đếm tương tác nâng cao, cho phép nhập Custom Amount để cộng/trừ số lượng lớn.
+- **Practice 3:** Magic Clicker game thử thách tốc độ ngón tay, render thông báo (Feedback) liên tục dựa trên các mốc đếm.
+- **Bài Tập Tổng Hợp:** Kết hợp toàn bộ các hook, event, và tư duy component thành một màn hình tương tác chuyên nghiệp.
 
 ---
+---
 
-# Hướng dẫn ReactJS cơ bản (Đi từ 0 → Làm được App)
+# 📚 Sổ tay: Hướng dẫn ReactJS cơ bản (Đi từ 0 → Làm được App)
+
+Dưới đây là các ghi chú cá nhân tóm tắt kiến thức thực chiến ReactJS cơ bản nhất.
 
 ## 1. ReactJS là gì?
 - Là thư viện JavaScript dùng để xây dựng giao diện (UI)
 - Do Facebook phát triển
 - Dùng để làm web động (SPA) nhanh, mượt
+
 👉 **Hiểu đơn giản**: React giúp bạn chia giao diện thành component nhỏ và tái sử dụng.
 
 ## 2. Cài đặt môi trường
