@@ -23,16 +23,17 @@ import {
   Practice1,
   Practice2,
   Practice3,
-} from "./features/lession1";
+} from "./features/lesson1";
 import CollapsibleSection from "./components/CollapsibleSection";
 import "./App.css";
 import {
-  Lession2,
-  Practice1_Lession2,
-  Practice2_Lession2,
-} from "./features/lession2";
+  Lesson2,
+  Practice1_Lesson2,
+  Practice2_Lesson2,
+} from "./features/lesson2";
 import DocsDialog from "./components/DocsDialog";
 import buttonDocsContent from "../docs/ReactBasics.md?raw";
+import TodoApp from "./features/lesson3/components/TodoApp";
 
 function App() {
   const [openDocs, setOpenDocs] = useState(false);
@@ -153,6 +154,14 @@ function App() {
               >
                 Lesson 2
               </Button>
+              <Button
+                component={Link}
+                to="/lesson3"
+                color={location.pathname === "/lesson3" ? "primary" : "inherit"}
+                sx={{ opacity: location.pathname === "/lesson3" ? 1 : 0.7 }}
+              >
+                Lesson 3
+              </Button>
             </Box>
 
             <Button
@@ -218,14 +227,35 @@ function App() {
                   </Typography>
                   <Stack spacing={3}>
                     <Paper sx={{ p: 1 }}>
-                      <Lession2 />
+                      <Lesson2 />
                     </Paper>
                     <CollapsibleSection title="Practice 1 (Fetch & Render Data)">
-                      <Practice1_Lession2 />
+                      <Practice1_Lesson2 />
                     </CollapsibleSection>
                     <CollapsibleSection title="Practice 2">
-                      <Practice2_Lession2 />
+                      <Practice2_Lesson2 />
                     </CollapsibleSection>
+                  </Stack>
+                </Box>
+              }
+            />
+
+            <Route
+              path="/lesson3"
+              element={
+                <Box>
+                  <Typography
+                    variant="h4"
+                    className="gradient-text"
+                    gutterBottom
+                    sx={{ mb: 3, width: "fit-content" }}
+                  >
+                    Lessons 3
+                  </Typography>
+                  <Stack spacing={3}>
+                    <Paper sx={{ p: 1 }}>
+                      <TodoApp />
+                    </Paper>
                   </Stack>
                 </Box>
               }
