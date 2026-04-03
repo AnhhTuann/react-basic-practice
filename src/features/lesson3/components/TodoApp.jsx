@@ -1,4 +1,6 @@
 import { useState } from "react";
+import TodoInput from "./TodoInput";
+import TodoList from "./TodoList";
 
 function TodoApp() {
   const [todos, setTodos] = useState([]);
@@ -15,7 +17,13 @@ function TodoApp() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  return <div>Todo App</div>;
+  return (
+    <div>
+      <h1>Todo App</h1>
+      <TodoInput addTodo={addTodo} />
+      <TodoList todos={todos} deleleTodo={deleteTodo} />
+    </div>
+  );
 }
 
 export default TodoApp;
